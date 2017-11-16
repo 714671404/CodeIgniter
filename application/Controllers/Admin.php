@@ -6,7 +6,7 @@ use CodeIgniter\Controller;
 class Admin extends Controller{
     public function index()
     {
-        echo 123;
+        echo 'Admin';
     }
 
     public function show()
