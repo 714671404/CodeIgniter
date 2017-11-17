@@ -35,6 +35,42 @@
  * @since       Version 3.0.0
  * @filesource
  */
+
+/*
+ * CodeIgniter
+ *
+ * 一个PHP的开源应用程序开发框架
+ *
+ * 本内容是根据MIT许可证（MIT）
+ *
+ * 版权所有（c）2014-2017不列颠哥伦比亚理工学院
+ *
+ * 特此免费授予任何获得副本的人士
+ * 本软件及相关文档文件（“软件”）进行处理
+ * 在软件中没有限制，包括但不限于权利
+ * 使用，复制，修改，合并，发布，分发，在许可和/或出售
+ * 本软件的副本，冰允许本软件所属的人员
+ * 提供这样做，但必须符合以下条件：
+ *
+ * 上述版权声明和本许可声明应包括在内
+ * 本软件的所有副本或大部分内容。
+ *
+ * 本软件按“原样”提供，不附有任何形式的明示或暗示保证
+ * 默示，包括但不限于对适销性的保证，
+ * 针对特定用途的适用性和不侵权。在任何情况下，
+ * 作者或版权所有者对任何索赔，损害或其他
+ * 责任，无论是在合同，民事侵权行为或其他方面，
+ * 与本软件或使用或其他交易有关或与之相关
+ * 软件。
+ *
+ * @package CodeIgniter
+ * @作者CodeIgniter开发团队
+ * @copyright 2014-2017不列颠哥伦比亚理工学院（https://bcit.ca/）
+ * 授权https://opensource.org/licenses/MIT麻省理工学院许可证
+ * @link https://codeigniter.com
+ * @版本3.0.0
+ * @filesource
+ */
 use CodeIgniter\HTTP\RequestInterface;
 use CodeIgniter\HTTP\ResponseInterface;
 use Config\Services;
@@ -47,10 +83,25 @@ use Config\Services;
  * @package  CodeIgniter
  * @category Common Functions
  */
+
+/*
+ * 常用功能
+ *
+ * 几种应用程序范围的实用方法。
+ *
+ * @package CodeIgniter
+ * @category常用功能
+ */
+
 //--------------------------------------------------------------------
 // Services Convenience Functions
 //--------------------------------------------------------------------
 
+//--------------------------------------------------------------------
+// 翻译版
+//--------------------------------------------------------------------
+// 服务便利功能
+//--------------------------------------------------------------------
 if ( ! function_exists('cache'))
 {
 
@@ -67,17 +118,37 @@ if ( ! function_exists('cache'))
 	 *
 	 * @return \CodeIgniter\Cache\CacheInterface|mixed
 	 */
+
+	/*
+	 * -------------------------------------------------------------------
+	 * 翻译版：
+	 * -------------------------------------------------------------------
+	 * 提供对Cache的访问的便捷方法
+	 * 对象。如果没有提供参数，将返回对象，
+	 * 否则，将尝试返回缓存的值。
+	 *
+	 * 例子：
+	 * cache（）-> save（‘foo’，‘bar’）；
+	 * $foo = cahe（‘bar’）；
+	 *
+	 * @param string|null $key
+	 *
+	 * @return \ CodeIgniter \ Cache \ CacheInterface |混合
+	 */
+
 	function cache(string $key = null)
 	{
 		$cache = \Config\Services::cache();
 
 		// No params - return cache object
+        // 没有参数 - 返回缓存对象
 		if (is_null($key))
 		{
 			return $cache;
 		}
 
 		// Still here? Retrieve the value.
+        // 还在？ 检索值。
 		return $cache->get($key);
 	}
 
@@ -103,6 +174,22 @@ if ( ! function_exists('view'))
 	 *
 	 * @return string
 	 */
+
+	/*
+	 * 抓取当前的RendererInterface兼容的类
+	 * 并告诉它呈现指定的视图。只需提供
+	 * 一个方便的方法，可以在控制器中使用，
+	 * 库和路由封闭。
+	 *
+	 * 注：不提供任何数据转译，所以必须
+	 * 全部由开发人员动手处理。
+	 *
+	 * @参数字符串$名称
+     * @参数数组$数据
+     * @param array $ options未使用 - 保留给第三方扩展。
+     *
+     * @返回字符串
+	 */
 	function view(string $name, array $data = [], array $options = [])
 	{
 		/**
@@ -111,6 +198,11 @@ if ( ! function_exists('view'))
 		$renderer = Services::renderer();
 
 		$saveData = null;
+		/*
+		 * 函数备注：
+		 *          array_key_exists(mixed $key, array $array)
+		 *          判断键名是否在数组中
+		 */
 		if (array_key_exists('saveData', $options) && $options['saveData'] === true)
 		{
 			$saveData = (bool) $options['saveData'];
@@ -139,6 +231,18 @@ if ( ! function_exists('view_cell'))
 	 *
 	 * @return string
 	 */
+
+	/*
+	 * 在视图中使用视图单元来插入被管理的HTML块
+	 * 由其他班级。
+	 *
+	 * @参数字符串$库
+     * @param null $ params
+     * @param int $ ttl
+     * @param string | null $ cacheName
+     *
+     * @返回字符串
+	 */
 	function view_cell(string $library, $params = null, int $ttl = 0, string $cacheName = null)
 	{
 		return Services::viewcell()
@@ -163,8 +267,24 @@ if ( ! function_exists('env'))
 	 *
 	 * @return mixed
 	 */
+
+	/*
+	 * 允许用户从环境中检索值
+	 * 已设置的变量。特别有用
+	 * 检索从.env文件中设置的值
+	 * 在配置文件中使用。
+	 *
+	 * @参数字符串$键
+     * @param null $ default
+     *
+     * @返回混合
+	 */
 	function env(string $key, $default = null)
 	{
+	    /*
+	     * 函数备注：
+	     *      getenv();
+	     */
 		$value = getenv($key);
 		if ($value === false)
 		{

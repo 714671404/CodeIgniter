@@ -50,7 +50,7 @@ define('APP_NAMESPACE', 'App');
  * Composer的自动加载文件预计将存在的路径。
  * 供应商文件夹位于根目录中，但您可以在此自定义
  *
- * 备注常量：
+ * 备注常量：/home/vagrant/Code/CodeIgniter/vendor/autoload.php
  */
 define('COMPOSER_PATH', ROOTPATH.'vendor/autoload.php');
 
@@ -71,6 +71,11 @@ define('COMPOSER_PATH', ROOTPATH.'vendor/autoload.php');
  *
  * 提供简单的方法来处理无数的PHP函数
  * 要求信息在几秒钟内
+ *
+ * 备注：
+ *      先用defined函数判断常量是否存在，
+ *      如果存在则不进行下面的赋值操作，
+ *      反之进行赋值。
  */
 defined('SECOND')   || define('SECOND',                 1);
 defined('MINUTE')   || define('MINUTE',                60);
@@ -106,13 +111,45 @@ defined('DECADE')   || define('DECADE',         315360000);
 |       http://tldp.org/LDP/abs/html/exitcodes.html
 |
 */
-defined('EXIT_SUCCESS')        || define('EXIT_SUCCESS',        0); // no errors
-defined('EXIT_ERROR')          || define('EXIT_ERROR',          1); // generic error
-defined('EXIT_CONFIG')         || define('EXIT_CONFIG',         3); // configuration error
-defined('EXIT_UNKNOWN_FILE')   || define('EXIT_UNKNOWN_FILE',   4); // file not found
-defined('EXIT_UNKNOWN_CLASS')  || define('EXIT_UNKNOWN_CLASS',  5); // unknown class
-defined('EXIT_UNKNOWN_METHOD') || define('EXIT_UNKNOWN_METHOD', 6); // unknown class member
-defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT',     7); // invalid user input
-defined('EXIT_DATABASE')       || define('EXIT_DATABASE',       8); // database error
-defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN',      9); // lowest automatically-assigned error code
-defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX',    125); // highest automatically-assigned error code
+
+/*
+ * -------------------------------------------------------------------------
+ * 翻译版：
+ * -------------------------------------------------------------------------
+ * 退出状态码
+ * -------------------------------------------------------------------------
+ *
+ * 用于指示脚本退出（）的条件。
+ * 虽然没有通过的错误代码标准，但也有一些
+ * 广泛的公约。以下提到了三个这样的约定
+ * 那些希望利用他们的人。CodeIgniter的默认值是
+ * 选择与这些公约最少重叠，而仍然
+ * 为将来的版本和用户定义其他空间
+ * 应用。
+ *
+ * 用于确定退出状态代码的三个主要惯例
+ * 如下面所述：
+ *
+ * 标准C/C++库（stdlibc）：
+ *      http://www.gnu.org/software/libc/manual/html_node/Exit-status.html
+ *      （这个链接还包含其他GNU特定的约定）
+ *    BSD sysexits.h：
+ *      http://www.gsp.com/cgi-bin/man.cgi?section=3&topic=sysexits
+ *    Bash脚本：
+ *      http://tldp.org/LDP/abs/html/exitcodes.html
+ * 备注常量：
+ *          先用defined判断常量是否存在，
+ *          如果常量存在则不进行||赋值，
+ *          反之进行赋值。
+ */
+
+defined('EXIT_SUCCESS')        || define('EXIT_SUCCESS',        0); // no errors                                        没有错误
+defined('EXIT_ERROR')          || define('EXIT_ERROR',          1); // generic error                                    一般错误
+defined('EXIT_CONFIG')         || define('EXIT_CONFIG',         3); // configuration error                              配置错误
+defined('EXIT_UNKNOWN_FILE')   || define('EXIT_UNKNOWN_FILE',   4); // file not found                                   文件未找到
+defined('EXIT_UNKNOWN_CLASS')  || define('EXIT_UNKNOWN_CLASS',  5); // unknown class                                    未知的类
+defined('EXIT_UNKNOWN_METHOD') || define('EXIT_UNKNOWN_METHOD', 6); // unknown class member                             未知的班级成员
+defined('EXIT_USER_INPUT')     || define('EXIT_USER_INPUT',     7); // invalid user input                               无效的用户输入
+defined('EXIT_DATABASE')       || define('EXIT_DATABASE',       8); // database error                                   数据库错误
+defined('EXIT__AUTO_MIN')      || define('EXIT__AUTO_MIN',      9); // lowest automatically-assigned error code         最低自动分配的错误代码
+defined('EXIT__AUTO_MAX')      || define('EXIT__AUTO_MAX',    125); // highest automatically-assigned error code        最高自动分配的错误代码

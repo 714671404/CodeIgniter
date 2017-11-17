@@ -129,7 +129,7 @@ define('ROOTPATH', substr_replace(FCPATH, '', $pos, strlen($public.DIRECTORY_SEP
  */
 
 define('APPPATH', realpath($paths->applicationDirectory).DIRECTORY_SEPARATOR);
-echo APPPATH;EXIT;
+
 /**
  * The path to the system directory.
  */
@@ -140,7 +140,8 @@ echo APPPATH;EXIT;
  * --------------------------------------------------------------
  * 系统目录的路径
  *
- *
+ *  备注常量：
+ *          BASEPATH = /home/vagrant/Code/CodeIgniter/system/
  *
  */
 
@@ -156,10 +157,11 @@ define('BASEPATH', realpath($paths->systemDirectory).DIRECTORY_SEPARATOR);
  * --------------------------------------------------------------
  * 可写目录的路径
  *
+ * 备注常量：
+ *          WRITEPATH = /home/vagrant/Code/CodeIgniter/writable/
  */
 
 define('WRITEPATH', realpath($paths->writableDirectory).DIRECTORY_SEPARATOR);
-echo "paths->writableDirectory)<br />";
 
 /**
  * The path to the tests directory
@@ -171,6 +173,8 @@ echo "paths->writableDirectory)<br />";
  * --------------------------------------------------------------
  * 测试目录的路径
  *
+ * 备注常量：
+ *          TESTPATH = /home/vagrant/Code/CodeIgniter/tests/
  */
 
 define('TESTPATH', realpath($paths->testsDirectory).DIRECTORY_SEPARATOR);
