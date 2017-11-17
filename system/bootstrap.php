@@ -46,39 +46,149 @@
  * so they are available in the config files that are loaded.
  */
 
-$public = trim($paths->publicDirectory, '/');
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 设置我们的路径常量
+ * --------------------------------------------------------------
+ *
+ * 路径常量提供了对文件夹的方便访问
+ * 整个应用程序。我们必须在这里设置他们
+ * 因此它们在加载的配置文件中可用
+ *
+ * 函数解释：
+ *      trim（）
+ *          移除字符串两侧的字符（"Hello" 中的 "He" 以及 "World" 中的 "d!"）：
+ *              $str = "Hello World!";
+ *              echo $str . "<br>";
+ *              echo trim($str,"Hed!");
+ *          输出结果 “llo worl”；
+ *      strrpos（）
+ *              查找 "php" 在字符串中最后一次出现的位置：
+ *              echo strrpos("You love php, I love php too!","php");
+ *          输出结果 “21”
+ *
+ * 备注变量：$public = 'public';
+ *          $aps = 31;
+ *
+ */
 
+$public = trim($paths->publicDirectory, '/');
 $pos = strrpos(FCPATH, $public.DIRECTORY_SEPARATOR);
 
 /**
  * The path to the main application directory. Just above public.
  */
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 主应用程序目录的路径。就在公众之上
+ *
+ * 函数解释：
+ *          strlen（）
+ *              函数返回字符串 "Shanghai" 的长度：
+ *                  echo strlen("Shanghai");
+ *                  输出 8；
+ *          substr_replace（）
+ *                  把 "Hello" 替换成 "world"：；
+ *                  echo substr_replace("Hello","world",0);
+ *                  输出 world；
+ *
+ * 备注常量：FCPATH = /home/vagrant/Code/CodeIgniter/public/
+ *          ROOTPATH = /home/vagrant/Code/CodeIgniter/
+ *          DIRECTORY_SEPARATOR = /
+ *
+ *
+ */
+
 define('ROOTPATH', substr_replace(FCPATH, '', $pos, strlen($public.DIRECTORY_SEPARATOR)));
 
 /**
  * The path to the application directory.
  */
-define('APPPATH', realpath($paths->applicationDirectory).DIRECTORY_SEPARATOR);
 
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 应用程序目录的目录
+ *
+ * 函数：
+ *      realpath（）
+ *          realpath() 函数返回绝对路径。
+ *          该函数删除所有符号连接（比如 '/./', '/../' 以及多余的 '/'），返回绝对路径名。
+ *          若失败，则返回 false。比如说文件不存在的话。
+ *          echo realpath("test.txt");
+ *          输出：C:\Inetpub\testweb\test.txt
+ *
+ * 备注常量：
+ *      APPPATH = /home/vagrant/Code/CodeIgniter/application/
+ */
+
+define('APPPATH', realpath($paths->applicationDirectory).DIRECTORY_SEPARATOR);
+echo APPPATH;EXIT;
 /**
  * The path to the system directory.
  */
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 系统目录的路径
+ *
+ *
+ *
+ */
+
 define('BASEPATH', realpath($paths->systemDirectory).DIRECTORY_SEPARATOR);
 
 /**
  * The path to the writable directory.
  */
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 可写目录的路径
+ *
+ */
+
 define('WRITEPATH', realpath($paths->writableDirectory).DIRECTORY_SEPARATOR);
+echo "paths->writableDirectory)<br />";
 
 /**
  * The path to the tests directory
  */
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 测试目录的路径
+ *
+ */
+
 define('TESTPATH', realpath($paths->testsDirectory).DIRECTORY_SEPARATOR);
 
 /*
  * ---------------------------------------------------------------
  * GRAB OUR CONSTANTS & COMMON
  * ---------------------------------------------------------------
+ */
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 抓住我们的常量和共同点
+ *
+ * 备注常量：APPPATH = /home/vagrant/Code/CodeIgniter/application/
+ *          BASEPATH = /home/vagrant/Code/CodeIgniter/system/
  */
 require APPPATH.'Config/Constants.php';
 

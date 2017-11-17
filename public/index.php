@@ -24,6 +24,7 @@ $pathsPath = '../application/Config/Paths.php';
  * --------------------------------------------------------------
  * 前段控制器的路径（此文件）
  *
+ * 备注常量：FCPATH = /home/vagrant/Code/CodeIgniter/public/
  */
 define('FCPATH', __DIR__.DIRECTORY_SEPARATOR);
 
@@ -49,9 +50,28 @@ define('FCPATH', __DIR__.DIRECTORY_SEPARATOR);
  */
 
 // Ensure the current directory is pointing to the front controller's directory
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 确保当前目录指向前段控制器的目录
+ */
 chdir(__DIR__);
 
 // Load our paths config file
+
+/*
+ * --------------------------------------------------------------
+ * 翻译版：
+ * --------------------------------------------------------------
+ * 加载我们的路径配置文件
+ *
+ * 备注变量：$pathsPath = ../application/Config/Paths.php
+ *          $app = ../system
+ *
+ */
+
 require $pathsPath;
 $paths = new Config\Paths();
 

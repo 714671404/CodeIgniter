@@ -11,6 +11,24 @@
 // NOTE: changing this will require manually modifying the
 // existing namespaces of App\* namespaced-classes.
 //
+
+/*
+ * -------------------------------------------------------------------
+ * 翻译版：
+ * -------------------------------------------------------------------
+ * 应用程序名称空间
+ * -------------------------------------------------------------------
+ *
+ * 这定义了始终使用的默认名称空间
+ * CodeIgniter引用应用程序目录。更改
+ * 这个常量改变所有应用程序的命名空间
+ * 类应该应用。
+ *
+ * 注意：改变这将需要手动修改
+ * App\*命名空间类的现有命名空间。
+ *
+ * 备注常量：APP_NAMESPACE = App;
+ */
 define('APP_NAMESPACE', 'App');
 
 /*
@@ -21,6 +39,19 @@ define('APP_NAMESPACE', 'App');
 | The path that Composer's autoload file is expected to live. By default,
 | the vendor folder is in the Root directory, but you can customize that here.
 */
+
+/*
+ * -------------------------------------------------------------------------
+ * 翻译版：
+ * -------------------------------------------------------------------------
+ * 作曲者路径
+ * -------------------------------------------------------------------------
+ *
+ * Composer的自动加载文件预计将存在的路径。
+ * 供应商文件夹位于根目录中，但您可以在此自定义
+ *
+ * 备注常量：
+ */
 define('COMPOSER_PATH', ROOTPATH.'vendor/autoload.php');
 
 /*
@@ -31,6 +62,16 @@ define('COMPOSER_PATH', ROOTPATH.'vendor/autoload.php');
 | Provide simple ways to work with the myriad of PHP functions that
 | require information to be in seconds.
 */
+
+/*
+ * -------------------------------------------------------------------------
+ * 翻译版：
+ * -------------------------------------------------------------------------
+ * 时间常数
+ *
+ * 提供简单的方法来处理无数的PHP函数
+ * 要求信息在几秒钟内
+ */
 defined('SECOND')   || define('SECOND',                 1);
 defined('MINUTE')   || define('MINUTE',                60);
 defined('HOUR')     || define('HOUR',                3600);
